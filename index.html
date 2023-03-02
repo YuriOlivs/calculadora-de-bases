@@ -1,0 +1,32 @@
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="assets/styles/style.css">
+   <script src="assets/js/script.js" defer></script>
+   <title>Calculadora de Bases</title>
+</head>
+<body>
+   <div id="calculadora">
+         <h1>Calculadora de Decimais</h1>
+
+         <label for="ipt_numero">
+            Numero decimal:
+            <input type="text" id="ipt_numero">
+         </label>
+
+         <label for="select_bases">
+            Base:
+            <select name="bases" id="select_bases">
+               <option value="binario">Binário</option>
+               <option value="octal">Octal</option>
+               <option value="hexa">Hexadecimal</option>
+            </select>
+         </label>
+
+         <button onclick="calc()">Calcular</button>
+         <div id="div_resultado"></div>
+      </div>
+</body>
+</html>
