@@ -1,13 +1,16 @@
+
+
 function calc() {
    let fromBase = document.getElementById('select_base_from').value
    let toBase = document.getElementById('select_base_to').value
-   let num = Number(document.getElementById('ipt_numero').value)
+   let num = document.getElementById('ipt_numero').value
    let resultado = document.getElementById('div_resultado')
 
    let binario = []
    let numConvertido = ""
 
    if(fromBase === 'decimal' && toBase === 'binario') {
+      num = Number(num)
       while(num > 0) {
          binario.unshift(num % 2)
          num = Math.floor(num / 2)
@@ -17,6 +20,7 @@ function calc() {
          numConvertido += binario[i]
       }
    } else if(fromBase === 'decimal' && toBase === 'octal') {
+      num = Number(num)
       while(num > 0) {
          binario.unshift(num % 8)
          num = Math.floor(num / 8)
@@ -26,6 +30,7 @@ function calc() {
          numConvertido += binario[i]
       }
    } else if(fromBase === 'decimal' && toBase === 'hexa'){
+      num = Number(num)
       while(num > 0) {
          let resto = num % 16
          switch(resto){
@@ -58,6 +63,7 @@ function calc() {
          numConvertido += binario[i]
       }
    } else if(fromBase === 'binario' && toBase === 'decimal'){
+      num = Number(num)
       let numArray = (num).toString().split('')
       let soma = 0
       let exponent = 0
@@ -70,6 +76,7 @@ function calc() {
       }
       numConvertido = soma
    } else if(fromBase === 'octal' && toBase === 'decimal') {
+      num = Number(num)
       let numArray = num.toString().split('')
       let soma = 0
       let exponent = 0
@@ -82,10 +89,10 @@ function calc() {
       }
       numConvertido = soma
    } else if(fromBase === 'hexa' && toBase === 'decimal') {
-      let numArray = num.toString().split('')
+      let numArray = num.split('')
       let soma = 0
       let exponent = 0
-
+      console.log(numArray)
       for(i = numArray.length - 1; i >= 0; i--) {
          let digit = numArray[i]
          switch(digit) {
@@ -116,8 +123,20 @@ function calc() {
          soma += decimal
          exponent++
       }
+      
       numConvertido = soma
-   } 
-
-   resultado.innerText = numConvertido
+   } else if (fromBase === 'binario' && toBase === 'octal') {  
+      numArray = num.split('')
+      for(i = 0; i < numArray.length; i++) {
+         if(numArray[0] != '0' || '1') {
+            numConvertido = `Valor inserido inválido. </br> A Base binário contém apenas 0 e 1. `
+         } 
+      } 
+         
+      if((num.length % 3) == 0){
+         octArray = num.match(/...?/g) 
+         console.log(octArray)
+      } 
+   }
+   resultado.innerHTML = numConvertido
 }
