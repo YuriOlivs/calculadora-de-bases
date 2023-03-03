@@ -11,14 +11,24 @@
    <div id="calculadora">
          <h1>Calculadora de Decimais</h1>
 
+         <label for="select_base_from">
+            <select name="base_original" id="select_base_from">
+               <option value="decimal">Decimal</option>
+               <option value="binario">Binário</option>
+               <option value="octal">Octal</option>
+               <option value="hexa">Hexadecimal</option>
+            </select>
+         </label>
+
          <label for="ipt_numero">
-            Numero decimal:
+            Numero a ser convertido:
             <input type="text" id="ipt_numero">
          </label>
 
-         <label for="select_bases">
+         <label for="select_base_to">
             Base:
-            <select name="bases" id="select_bases">
+            <select name="bases" id="select_base_to">
+               <option value="decimal">Decimal</option>
                <option value="binario">Binário</option>
                <option value="octal">Octal</option>
                <option value="hexa">Hexadecimal</option>
